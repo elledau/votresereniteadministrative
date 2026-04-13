@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Votre Sérénité Administrative par Christelle Dauvergne — Assistance administrative à domicile pour seniors : courriers, démarches, factures, relations administrations. Paris et Petite Couronne.">
+<title>Votre Sérénité Administrative — Christelle Dauvergne — Assistance administrative à domicile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════
+   VARIABLES — Palette accessible seniors
+═══════════════════════════════════════════ */
+:root {
+  /* Couleurs principales */
+  --ivoire:    #F9F5EF;   /* fond général — jamais blanc pur */
+  --ivoire-2:  #F2EBE0;   /* fond sections alternées */
+  --marine:    #1E3A4C;   /* texte principal, titres — contraste maximal */
+  --bordeaux:  #7B2D3E;   /* accent chaud, liens actifs */
+  --terracotta:#B05A3A;   /* accent secondaire */
+  --sauge:     #4A7060;   /* accent vert, validation */
+  --or:        #9A7440;   /* doré sobre, petites déco */
+  --or-clair:  #D4B483;   /* fond badges, liseret */
+
+  /* Textes */
+  --texte:         #1E2D38;  /* corps de texte — quasi-noir chaud */
+  --texte-moyen:   #3D4E56;  /* texte secondaire — contraste ≥ 7:1 */
+  --texte-leger:   #5A6B74;  /* légendes — contraste ≥ 4.5:1 sur ivoire */
+
+  /* Typographie — GRANDS */
+  --font-titre: 'Playfair Display', Georgia, serif;
+  --font-corps: 'Source Serif 4', Georgia, serif;
+
+  /* Tailles — ACCESSIBILITÉ SENIORS */
+  --taille-base:   19px;   /* corps minimum recommandé seniors */
+  --taille-lead:   21px;   /* paragraphes importants */
+  --taille-petit:  17px;   /* légendes, notes — jamais moins */
+  --taille-nav:    17px;   /* navigation */
+
+  /* Espacement */
+  --ligne: 1.85;           /* interlignage généreux */
+  --rayon: 3px;
+}
+
+/* Skip link accessibilité clavier */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--bordeaux);
+  color: #fff;
+  padding: .8rem 1.5rem;
+  font-family: var(--font-corps);
+  font-size: var(--taille-base);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--rayon);
+  z-index: 9999;
+  transition: top .2s;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Skip link accessibilité clavier */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: var(--taille-base); }
+
+body {
+  font-family: var(--font-corps);
+  background: var(--ivoire);
+  color: var(--texte);
+  line-height: var(--ligne);
+  overflow-x: hidden;
+}
+
+/* Focus visible — navigation clavier WCAG 2.1 */
+:focus-visible {
+  outline: 3px solid var(--bordeaux);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Petites majuscules — classe globale */
+.petites-maj {
+  font-variant: small-caps;
+  font-variant-caps: small-caps;
+  letter-spacing: .06em;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(249,245,239,.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--or-clair);
+  padding: 0 5vw;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  transition: box-shadow .3s;
+}
+nav.scrolled { box-shadow: 0 3px 20px rgba(30,58,76,.12); }
+
+.nav-logo {
+  font-family: var(--font-titre);
+  font-size: 1.2rem;
+  color: var(--marine);
+  text-decoration: none;
+  line-height: 1.25;
+  flex-shrink: 0;
+}
+.nav-logo .nom {
+  display: block;
+  font-size: .95rem;
+  font-family: var(--font-titre);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .02em;
+  color: var(--marine);
+}
+
+.nav-liens {
+  display: flex;
+  gap: 0;
+  list-style: none;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.nav-liens a {
+  font-size: 15px;
+  font-family: var(--font-corps);
+  font-variant: small-caps;
+  letter-spacing: .05em;
+  color: var(--texte-moyen);
+  text-decoration: none;
+  padding: .45rem .9rem;
+  border-radius: var(--rayon);
+  transition: color .2s, background .2s;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.nav-liens a:hover { color: var(--marine); background: var(--ivoire-2); }
+
+.nav-cta {
+  background: var(--bordeaux) !important;
+  color: #fff !important;
+  padding: .55rem 1.2rem !important;
+  margin-left: .4rem;
+  font-variant: small-caps;
+}
+.nav-cta:hover { background: var(--marine) !important; }
+
+/* ═══════════════════════════════════════════
+   BANDEAU NOM DE DOMAINE
+═══════════════════════════════════════════ */
+.bandeau {
+  background: var(--marine);
+  padding: .85rem 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.bandeau-label {
+  font-size: var(--taille-petit);
+  font-variant: small-caps;
+  letter-spacing: .1em;
+  color: var(--or-clair);
+  font-weight: 600;
+  font-family: var(--font-corps);
+}
+.bandeau-domaine {
+  font-family: var(--font-titre);
+  font-size: 1.15rem;
+  color: #fff;
+  font-style: italic;
+}
+.bandeau-sep {
+  color: var(--or-clair);
+  font-size: var(--taille-petit);
+  font-variant: small-caps;
+  opacity: .7;
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+#hero {
+  padding: 132px 5vw 80px;
+  background: var(--ivoire);
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-surtitre {
+  font-size: var(--taille-petit);
+  font-variant: small-caps;
+  letter-spacing: .12em;
+  color: var(--bordeaux);
+  font-weight: 600;
+  font-family: var(--font-corps);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  margin-bottom: 1.8rem;
+}
+.hero-surtitre::before,
+.hero-surtitre::after {
+  content: '';
+  display: inline-block;
+  width: 36px; height: 1.5px;
+  background: var(--bordeaux);
+  opacity: .5;
+}
+
+.hero-titre {
+  font-family: var(--font-titre);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 700;
+  color: var(--marine);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.hero-titre em {
+  font-style: italic;
+  color: var(--bordeaux);
+}
+
+.hero-nom {
+  font-family: var(--font-titre);
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--texte-moyen);
+  margin-bottom: 2rem;
+  opacity: .8;
+}
+
+.hero-accroche {
+  font-size: var(--taille-lead);
+  color: var(--texte-moyen);
+  line-height: var(--ligne);
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+/* Boutons — grands, accessibles */
+.btn {
+  font-family: var(--font-corps);
+  font-size: var(--taille-base);
+  font-variant: small-caps;
+  letter-spacing: .07em;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: var(--rayon);
+  transition: all .25s;
+  min-height: 52px;  /* accessibilité tactile */
+}
+.btn-plein {
+  background: var(--bordeaux);
+  color: #fff;
+  border-color: var(--bordeaux);
+}
+.btn-plein:hover { background: var(--marine); border-color: var(--marine); }
+
+.btn-contour {
+  background: transparent;
+  color: var(--marine);
+  border-color: var(--marine);
+}
+.btn-contour:hover { background: var(--marine); color: #fff; }
+
+/* Cartes info hero */
+.hero-infos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.hero-info-carte {
+  background: var(--ivoire-2);
+  border: 1.5px solid var(--or-clair);
+  border-top: 3px solid var(--bordeaux);
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+}
+.info-chiffre {
+  font-family: var(--font-titre);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--bordeaux);
+  line-height: 1;
+  margin-bottom: .4rem;
+}
+.info-texte {
+  font-size: var(--taille-petit);
+  color: var(--texte-moyen);
+  line-height: 1.5;
+  font-variant: small-caps;
+  letter-spacing: .04em;
+}
+
+/* ═══════════════════════════════════════════
+   SECTIONS — structure commune
+═══════════════════════════════════════════ */
+.section {
+  padding: 80px 5vw;
+}
+.section-alt { background: var(--ivoire-2); }
+.section-marine { background: var(--marine); }
+
+.section-interieur {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.section-surtitre {
+  font-size: var(--taille-petit);
+  font-variant: small-caps;
+  letter-spacing: .12em;
+  color: var(--bordeaux);
+  font-weight: 600;
+  font-family: var(--font-corps);
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 1rem;
+}
+.section-surtitre::before {
+  content: '';
+  display: inline-block;
+  width: 28px; height: 1.5px;
+  background: var(--bordeaux);
+}
+
+.section-marine .section-surtitre { color: var(--or-clair); }
+.section-marine .section-surtitre::before { background: var(--or-clair); }
+
+.section-titre {
+  font-family: var(--font-titre);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--marine);
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+}
+.section-titre em { font-style: italic; color: var(--bordeaux); }
+.section-marine .section-titre { color: #fff; }
+.section-marine .section-titre em { color: var(--or-clair); }
+
+.section-intro {
+  font-size: var(--taille-lead);
+  color: var(--texte-moyen);
+  line-height: var(--ligne);
+  margin-bottom: 3rem;
+  max-width: 700px;
+}
+.section-marine .section-intro { color: rgba(249,245,239,.8); }
+
+/* Séparateur décoratif */
+.sep {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+.sep::before, .sep::after {
+  content: ''; flex: 1;
+  height: 1px; background: var(--or-clair);
+}
+.sep-texte {
+  font-size: var(--taille-petit);
+  font-variant: small-caps;
+  color: var(--or);
+  letter-spacing: .1em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION SERVICES
+═══════════════════════════════════════════ */
+.services-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5px;
+  border: 1.5px solid var(--or-clair);
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+.service {
+  background: var(--ivoire);
+  padding: 2.2rem 2.5rem;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  border-bottom: 1.5px solid var(--or-clair);
+  transition: background .2s;
+}
+.service:last-child { border-bottom: none; }
+.service:hover { background: #fff; }
+
+.service-num {
+  font-family: var(--font-titre);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--or-clair);
+  line-height: 1;
+  text-align: right;
+  padding-top: .1rem;
+}
+
+.service-titre {
+  font-family: var(--font-titre);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--marine);
+  margin-bottom: .6rem;
+}
+
+.service-texte {
+  font-size: var(--taille-base);
+  color: var(--texte-moyen);
+  line-height: var(--ligne);
+}
+
+/* Encart exclusions */
+.encart-exclusions {
+  background: var(--ivoire-2);
+  border: 2px solid var(--or-clair);
+  border-left: 5px solid var(--terracotta);
+  padding: 1.8rem 2rem;
+}
+.exclusions-titre {
+  font-size: var(--taille-base);
+  font-variant: small-caps;
+  letter-spacing: .06em;
+  font-weight: 700;
+  color: var(--terracotta);
+  margin-bottom: .8rem;
+  font-family: var(--font-corps);
+}
+.exclusions-texte {
+  font-size: var(--taille-base);
+  color: var(--texte-moyen);
+  line-height: var(--ligne);
+}
+
+/* ═══════════════════════════════════════════
+   SECTION À PROPOS
+═══════════════════════════════════════════ */
+.apropos-corps {
+  font-size: var(--taille-lead);
+  color: var(--texte-moyen);
+  line-height: var(--ligne);
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+.citation {
+  font-family: var(--font-titre);
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--marine);
+  border-left: 4px solid var(--bordeaux);
+  padding: 1.2rem 1.8rem;
+  background: var(--ivoire);
+  margin: 2.5rem 0;
+  line-height: 1.6;
+}
+
+.atouts-grille {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.atout {
+  background: var(--ivoire);
+  border: 1.5px solid var(--or-clair);
+  border-top: 3px solid var(--sauge);
+  padding: 1.5rem 1.5rem;
+  transition: border-top-color .2s, box-shadow .2s;
+}
+.atout:hover {
+  border-top-color: var(--bordeaux);
+  box-shadow: 0 4px 18px rgba(30,58,76,.1);
+}
+
+.atout-titre {
+  font-size: var(--taille-base);
+  font-variant: small-caps;
+  letter-spacing: .05em;
+  font-weight: 700;
+  color: var(--marine);
+  margin-bottom: .5rem;
+  font-family: var(--font-corps);
+}
+.atout-texte {
+  font-size: var(--taille-petit);
+  color: var(--texte-moyen);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION VALEURS (fond marine)
+═══════════════════════════════════════════ */
+.valeurs-grille {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.valeur {
+  border: 1.5px solid rgba(255,255,255,.15);
+  padding: 2rem;
+  background: rgba(255,255,255,.04);
+  transition: border-color .25s, background .25s;
+}
+.valeur:hover {
+  border-color: var(--or-clair);
+  background: rgba(255,255,255,.08);
+}
+
+.valeur-icone {
+  font-size: 1.8rem;
+  margin-bottom: .8rem;
+  display: block;
+}
+.valeur-titre {
+  font-size: var(--taille-base);
+  font-variant: small-caps;
+  letter-spacing: .06em;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: .5rem;
+  font-family: var(--font-corps);
+}
+.valeur-texte {
+  font-size: var(--taille-petit);
+  color: rgba(249,245,239,.72);
+  line-height: 1.75;
+}
+
+/* ═══════════════════════════════════════════
+   CAHIER DE LIAISON
+═══════════════════════════════════════════ */
+.cahier-intro {
+  font-size: var(--taille-lead);
+  color: var(--texte-moyen);
+  line-height: var(--ligne);
+  margin-bottom: 2rem;
+}
+
+.cahier-maquette {
+  background: #fff;
+  border: 1.5px solid var(--or-clair);
+  box-shadow: 0 6px 30px rgba(30,58,76,.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.cahier-entete {
+  background: var(--marine);
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cahier-entete-titre {
+  font-family: var(--font-titre);
+  font-size: 1.1rem;
+  color: #fff;
+}
+.cahier-entete-mois {
+  font-size: var(--taille-petit);
+  font-variant: small-caps;
+  color: var(--or-clair);
+  letter-spacing: .1em;
+  font-weight: 600;
+}
+
+.cahier-ligne {
+  padding: 1.3rem 2rem;
+  border-bottom: 1px solid var(--ivoire-2);
+  display: grid;
+  grid-template-columns: 10px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.cahier-ligne:last-child { border-bottom: none; }
+
+.cahier-puce {
+  width: 8px; height: 8px;
+  background: var(--sauge);
+  border-radius: 50%;
+  margin-top: .6rem;
+}
+
+.cahier-ligne-titre {
+  font-size: var(--taille-base);
+  font-variant: small-caps;
+  letter-spacing: .04em;
+  font-weight: 700;
+  color: var(--marine);
+  margin-bottom: .25rem;
+  font-family: var(--font-corps);
+}
+.cahier-ligne-desc {
+  font-size: var(--taille-petit);
+  color: var(--texte-moyen);
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════════
+   TARIFS
+═══════════════════════════════════════════ */
+.tarifs-note-ci {
+  background: var(--sauge);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-size: var(--taille-base);
+  line-height: 1.6;
+}
+.ci-chiffre {
+  font-family: var(--font-titre);
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tarifs-grille {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.tarif {
+  background: var(--ivoire);
+  border: 1.5px solid var(--or-clair);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 240px 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+  transition: box-shadow .2s;
+}
+.tarif:hover { box-shadow: 0 4px 20px rgba(30,58,76,.1); }
+.tarif.vedette {
+  border-color: var(--bordeaux);
+  border-width: 2px;
+}
+
+.tarif-gauche {
+  background: var(--ivoire-2);
+  padding: 1.8rem 2rem;
+  border-right: 1.5px solid var(--or-clair);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.tarif.vedette .tarif-gauche {
+  background: var(--bordeaux);
+  border-right-color: var(--bordeaux);
+}
+
+.tarif-nom {
+  font-size: var(--taille-petit);
+  font-variant: small-caps;
+  letter-spacing: .1em;
+  font-weight: 700;
+  color: var(--bordeaux);
+  margin-bottom: .4rem;
+  font-family: var(--font-corps);
+}
+.tarif.vedette .tarif-nom { color: rgba(255,255,255,.8); }
+
+.tarif-prix {
+  font-family: var(--font-titre);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--marine);
+  line-height: 1;
+}
+.tarif.vedette .tarif-prix { color: #fff; }
+
+.tarif-prix-unite {
+  font-family: var(--font-corps);
+  font-size: var(--taille-petit);
+  font-weight: 400;
+}
+
+.tarif-reel {
+  font-size: var(--taille-petit);
+  color: var(--sauge);
+  font-weight: 600;
+  margin-top: .3rem;
+}
+.tarif.vedette .tarif-reel { color: rgba(255,255,255,.75); }
+
+.tarif-milieu {
+  padding: 1.8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tarif-heures {
+  font-size: var(--taille-petit);
+  font-variant: small-caps;
+  letter-spacing: .06em;
+  font-weight: 700;
+  color: var(--or);
+  margin-bottom: .5rem;
+  font-family: var(--font-corps);
+}
+
+.tarif-desc {
+  font-size: var(--taille-base);
+  color: var(--texte-moyen);
+  line-height: 1.65;
+}
+
+.tarif-droite {
+  padding: 1.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1.5px solid var(--or-clair);
+}
+.tarif-badge-vedette {
+  background: var(--bordeaux);
+  color: #fff;
+  font-size: var(--taille-petit);
+  font-variant: small-caps;
+  letter-spacing: .08em;
+  font-weight: 700;
+  padding: .4rem .9rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+.tarifs-note-ponctuel {
+  background: var(--ivoire-2);
+  border: 1.5px solid var(--or-clair);
+  border-left: 4px solid var(--or);
+  padding: 1.5rem 2rem;
+  font-size: var(--taille-base);
+  color: var(--texte-moyen);
+  line-height: var(--ligne);
+}
+
+/* ═══════════════════════════════════════════
+   ENGAGEMENTS
+═══════════════════════════════════════════ */
+.engagements-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1.5px solid var(--or-clair);
+  overflow: hidden;
+}
+
+.engagement {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  align-items: start;
+  padding: 1.8rem 2rem;
+  border-bottom: 1.5px solid var(--or-clair);
+  background: var(--ivoire);
+  transition: background .2s;
+  gap: 1.5rem;
+}
+.engagement:last-child { border-bottom: none; }
+.engagement:hover { background: #fff; }
+
+.engagement-num {
+  font-family: var(--font-titre);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--or-clair);
+  line-height: 1;
+  text-align: center;
+  padding-top: .2rem;
+}
+
+.engagement-titre {
+  font-size: var(--taille-base);
+  font-variant: small-caps;
+  letter-spacing: .05em;
+  font-weight: 700;
+  color: var(--marine);
+  margin-bottom: .4rem;
+  font-family: var(--font-corps);
+}
+.engagement-texte {
+  font-size: var(--taille-base);
+  color: var(--texte-moyen);
+  line-height: var(--ligne);
+}
+
+/* ═══════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════ */
+.contact-grille {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.formulaire {
+  background: #fff;
+  border: 1.5px solid var(--or-clair);
+  padding: 2.5rem;
+}
+
+.form-titre {
+  font-family: var(--font-titre);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--marine);
+  margin-bottom: .4rem;
+}
+.form-sous {
+  font-size: var(--taille-petit);
+  color: var(--texte-leger);
+  margin-bottom: 2rem;
+}
+
+.form-groupe { margin-bottom: 1.4rem; }
+
+.form-label {
+  display: block;
+  font-size: var(--taille-petit);
+  font-variant: small-caps;
+  letter-spacing: .08em;
+  font-weight: 700;
+  color: var(--texte-moyen);
+  margin-bottom: .5rem;
+  font-family: var(--font-corps);
+}
+
+.form-champ,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: .9rem 1.1rem;
+  font-family: var(--font-corps);
+  font-size: var(--taille-base);
+  color: var(--texte);
+  background: var(--ivoire);
+  border: 2px solid var(--or-clair);
+  border-radius: var(--rayon);
+  outline: none;
+  transition: border-color .2s;
+  line-height: 1.5;
+}
+.form-champ:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--marine);
+  background: #fff;
+}
+.form-textarea { resize: vertical; min-height: 110px; }
+
+.contact-infos { padding-top: 1rem; }
+
+.contact-bloc {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+.contact-icone {
+  width: 48px; height: 48px;
+  background: var(--marine);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  border-radius: var(--rayon);
+}
+.contact-info-label {
+  font-size: var(--taille-petit);
+  font-variant: small-caps;
+  letter-spacing: .08em;
+  font-weight: 700;
+  color: var(--bordeaux);
+  margin-bottom: .2rem;
+  font-family: var(--font-corps);
+}
+.contact-info-val {
+  font-size: var(--taille-base);
+  color: var(--marine);
+  font-weight: 600;
+}
+.contact-info-sous {
+  font-size: var(--taille-petit);
+  color: var(--texte-leger);
+}
+
+.garanties {
+  background: var(--marine);
+  padding: 2rem;
+  margin-top: 2.5rem;
+  border-radius: var(--rayon);
+}
+.garanties-titre {
+  font-family: var(--font-titre);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--or-clair);
+  margin-bottom: .8rem;
+}
+.garanties-texte {
+  font-size: var(--taille-petit);
+  color: rgba(249,245,239,.75);
+  line-height: 1.75;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  background: var(--marine);
+  color: rgba(249,245,239,.65);
+  padding: 4rem 5vw 2rem;
+}
+
+.footer-contenu {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.footer-haut {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  font-family: var(--font-titre);
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: .3rem;
+}
+.footer-logo-nom {
+  font-family: var(--font-titre);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(249,245,239,.72);
+  margin-bottom: 1rem;
+  letter-spacing: .01em;
+}
+.footer-desc {
+  font-size: var(--taille-petit);
+  line-height: 1.75;
+  max-width: 280px;
+  margin-bottom: 1.2rem;
+}
+.footer-domaine {
+  font-size: var(--taille-petit);
+  color: var(--or-clair);
+  font-variant: small-caps;
+  letter-spacing: .06em;
+}
+
+.footer-col-titre {
+  font-size: var(--taille-petit);
+  font-variant: small-caps;
+  letter-spacing: .12em;
+  font-weight: 700;
+  color: #fff;
+  font-family: var(--font-corps);
+  margin-bottom: 1.2rem;
+}
+
+.footer-liens {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+}
+.footer-liens a {
+  font-size: var(--taille-petit);
+  color: rgba(249,245,239,.6);
+  text-decoration: none;
+  transition: color .2s;
+}
+.footer-liens a:hover { color: var(--or-clair); }
+
+.footer-bas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .8rem;
+  font-size: var(--taille-petit);
+}
+.footer-legal {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-legal a {
+  color: rgba(249,245,239,.4);
+  text-decoration: none;
+  transition: color .2s;
+  font-variant: small-caps;
+  letter-spacing: .04em;
+}
+.footer-legal a:hover { color: var(--or-clair); }
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════ */
+@keyframes monter {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animer {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.animer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#hero .hero-surtitre,
+#hero .hero-titre,
+#hero .hero-nom,
+#hero .hero-accroche,
+#hero .hero-actions,
+#hero .hero-infos {
+  animation: monter .8s ease both;
+}
+#hero .hero-titre    { animation-delay: .1s; }
+#hero .hero-nom      { animation-delay: .2s; }
+#hero .hero-accroche { animation-delay: .3s; }
+#hero .hero-actions  { animation-delay: .4s; }
+#hero .hero-infos    { animation-delay: .55s; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 820px) {
+  .hero-infos       { grid-template-columns: 1fr; }
+  .atouts-grille    { grid-template-columns: 1fr; }
+  .valeurs-grille   { grid-template-columns: 1fr; }
+  .contact-grille   { grid-template-columns: 1fr; }
+  .footer-haut      { grid-template-columns: 1fr; gap: 2.5rem; }
+  .tarif            { grid-template-columns: 1fr; }
+  .tarif-gauche     { border-right: none; border-bottom: 1.5px solid var(--or-clair); }
+  .tarif-droite     { display: none; }
+  .nav-liens        { display: none; }
+}
+
+@media (max-width: 600px) {
+  :root { --taille-base: 18px; }
+  .section { padding: 60px 5vw; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .btn { width: 100%; text-align: center; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ACCESSIBILITÉ : lien d'évitement clavier -->
+<a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+<!-- ══════════ NAVIGATION ══════════ -->
+<nav id="navbar" aria-label="Navigation principale" role="navigation">
+  <a href="#hero" class="nav-logo">Votre Sérénité Administrative</a>
+  <ul class="nav-liens">
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#valeurs">Valeurs &amp; Engagements</a></li>
+    <li><a href="#cahier">Cahier de liaison</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#contact" class="nav-cta">Contactez-moi</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════ BANDEAU DOMAINE ══════════ -->
+<div class="bandeau">
+  <span class="bandeau-label">Nom de domaine</span>
+  <span class="bandeau-sep">›</span>
+  <span class="bandeau-domaine">sereniteadministrative.fr</span>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<main id="contenu-principal">
+<section id="hero">
+  <div class="hero-surtitre">Assistance administrative à domicile</div>
+  <h1 class="hero-titre">
+    Vous méritez<br>
+    une vie <em>sereine</em>,<br>
+    confiez-moi vos formalités administratives
+  </h1>
+    <p class="hero-accroche">
+    Juriste de formation, traductrice et rédactrice depuis vingt-cinq ans,
+    j'interviens à votre domicile ou à distance pour vous accompagner
+    avec écoute et bienveillance dans toutes vos démarches
+    administratives quotidiennes, à votre rythme et
+    en toute confiance.
+  </p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn btn-plein">Prendre rendez-vous</a>
+    <a href="#services" class="btn btn-contour">Découvrir les services</a>
+  </div>
+  <div class="hero-infos">
+    <div class="hero-info-carte">
+      <div class="info-chiffre">25</div>
+      <div class="info-texte">Années d'expérience en rédaction professionnelle</div>
+    </div>
+    <div class="hero-info-carte">
+      <div class="info-chiffre">50 %</div>
+      <div class="info-texte">De crédit d'impôt sur toutes les prestations</div>
+    </div>
+    <div class="hero-info-carte">
+      <div class="info-chiffre">1<sup style="font-size:.6em">er</sup></div>
+      <div class="info-texte">Entretien à domicile offert, sans engagement</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section id="services" class="section section-alt">
+  <div class="section-interieur">
+    <div class="section-surtitre animer">Ce que je fais pour vous</div>
+    <h2 class="section-titre animer">Quatre domaines d'<em>intervention</em></h2>
+    <p class="section-intro animer" style="text-align:justify;">
+      Des prestations concrètes, réalisées à votre domicile ou à distance,
+      à votre rythme, dûment encadrées par un contrat personnalisé
+      défini sur la base de vos besoins.
+    </p>
+
+    <div class="services-liste animer">
+      <div class="service">
+        <div class="service-num">01</div>
+        <div>
+          <div class="service-titre">Correspondance et rédaction</div>
+          <div class="service-texte">
+            Rédaction de courriers, lettres de réclamation,
+            réponses aux administrations, courriers de demande ou de suivi.
+            Chaque courrier est rédigé avec clarté, professionnalisme et précision,
+            une compétence de juriste-rédactrice au service
+            de votre quotidien.
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-num">02</div>
+        <div>
+          <div class="service-titre">Formalités administratives</div>
+          <div class="service-texte">
+            Déclaration de revenus, demandes d'allocations (APA, aides CAF,
+            retraite complémentaire), constitution de dossiers, formulaires
+            CPAM, cartes de priorité, etc. Je constitue le dossier,
+			rassemble les pièces justificatives et assure le suivi.
+			Je vous accompagne pas à pas, avec sérénité, jusqu'à la validation finale.
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-num">03</div>
+        <div>
+          <div class="service-titre">Factures et finances du foyer</div>
+          <div class="service-texte">
+            Réception, vérification et classement des factures,
+            suivi des échéances, mise en place de prélèvements automatiques,
+            détection d'anomalies ou de surfacturations,
+            interface avec les fournisseurs d'énergie, mutuelles, banques.
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-num">04</div>
+        <div>
+          <div class="service-titre">Relations avec les administrations</div>
+          <div class="service-texte">
+            Prise de contact téléphonique, suivi de dossiers en cours,
+            accompagnement physique aux rendez-vous si nécessaire,
+            traduction des courriers complexes en langage clair,
+            relances et contestations amiables auprès des organismes.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="encart-exclusions animer">
+      <div class="exclusions-titre">⚠ Périmètre légal — Activités exclues</div>
+      <div class="exclusions-texte">
+        Conformément à l'article D.7231-1 du Code du travail et à la circulaire
+        du 3 janvier 2025, sont expressément exclus de cette activité :
+        tous les actes ou conseils juridiques et fiscaux relevant des
+        professionnels du droit (avocats, notaires) ou du chiffre
+        (experts-comptables), ainsi que les travaux littéraires
+        ou bibliographiques. Pour ces besoins spécifiques, je vous
+        orienterai vers les professionnels compétents.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ À PROPOS ══════════ -->
+<section id="apropos" class="section">
+  <div class="section-interieur">
+    <div class="section-surtitre animer">Qui suis-je ?</div>
+    <h2 class="section-titre animer">Christelle Dauvergne</h2>
+
+    <div class="citation animer">
+      « Chaque démarche administrative est une étape vers votre tranquillité.
+      Mon rôle est de vous y accompagner avec patience, écoute et respect,
+      sans jamais me substituer à vos décisions. »
+    </div>
+
+    <p class="apropos-corps animer">
+      Titulaire d'un Master en droit européen et droit international,
+      j'ai exercé pendant vingt-cinq ans comme traductrice juridique et rédactrice
+      freelance. Cette double compétence, juridique et rédactionnelle, ainsi que
+      mon sens aigu du détail me permettent de comprendre et de rédiger avec justesse
+	  des documents qui peuvent vous sembler opaques ou intimidants.
+    </p>
+    <p class="apropos-corps animer">
+      J'ai créé Votre Sérénité Administrative pour mettre ces compétences
+	  au service de personnes autonomes juridiquement,
+	  souvent dépassées par la complexité administrative,
+	  souvent isolées ou dont les proches vivent loin.
+    </p>
+
+    <div class="sep"><span class="sep-texte">Mon savoir-faire &amp; mon savoir-être à votre service</span></div>
+
+    <div class="atouts-grille animer">
+      <div class="atout">
+        <div class="atout-titre"><span aria-hidden="true">⚖️ </span>Formation juridique</div>
+        <div class="atout-texte">Master 1 en droit européen et droit international, je lis et comprends les textes réglementaires pour vous en extraire l'essentiel, sans jargon.</div>
+      </div>
+      <div class="atout">
+        <div class="atout-titre"><span aria-hidden="true">✍️ </span>25 ans d'écriture professionnelle</div>
+        <div class="atout-texte">Rédactrice et traductrice freelance de longue date, je maîtrise l'art d'un courrier efficace, clair et argumenté, quel que soit l'interlocuteur.</div>
+      </div>
+      <div class="atout">
+        <div class="atout-titre"><span aria-hidden="true">🤝 </span>Accompagnement responsable</div>
+        <div class="atout-texte">Je vous accompagne, je travaille toujours avec vous, jamais à votre place. Votre autonomie et votre liberté de décision sont au cœur de ma déontologie.</div>
+      </div>
+      <div class="atout">
+        <div class="atout-titre"><span aria-hidden="true">🔒 </span>Confidentialité</div>
+        <div class="atout-texte">Clause de confidentialité dans chaque contrat. Vos informations personnelles, fiscales et patrimoniales sont confidentielles et protégées.</div>
+      </div>
+      <div class="atout">
+        <div class="atout-titre"><span aria-hidden="true">📋 </span>Contrat personnalisé</div>
+        <div class="atout-texte">Après un premier entretien, je vous propose un contrat sur mesure définissant précisément les missions, les modalités et les tarifs.</div>
+      </div>
+      <div class="atout">
+        <div class="atout-titre"><span aria-hidden="true">🛡️ </span>Gestion éthique &amp; responsable</div>
+        <div class="atout-texte">Une activité encadrée, une confiance méritée : entreprise déclarée SAP, assurée en RC Pro et en conformité avec le RGPD.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ VALEURS ══════════ -->
+<section id="valeurs" class="section section-marine">
+  <div class="section-interieur">
+    <div class="section-surtitre animer">Ce qui me guide</div>
+    <h2 class="section-titre animer">Mes valeurs, <em>votre garantie</em></h2>
+    <p class="section-intro animer">
+      Ces valeurs que j'applique au quotidien sont au cœur de mon projet professionnel.
+      Ce sont des engagements contractuels que je prends
+      par écrit à chaque nouvelle mission.
+    </p>
+
+    <div class="valeurs-grille animer">
+      <div class="valeur">
+        <span class="valeur-icone" aria-hidden="true">🌿</span>
+        <div class="valeur-titre">Bienveillance</div>
+        <div class="valeur-texte">Je prends le temps qu'il faut, je n'interromps jamais, je reformule autant que nécessaire. Chaque personne mérite patience et écoute.</div>
+      </div>
+      <div class="valeur">
+        <span class="valeur-icone" aria-hidden="true">🔍</span>
+        <div class="valeur-titre">Transparence</div>
+        <div class="valeur-texte">Tarification claire, compte-rendu mensuel, aucune mission engagée sans votre accord explicite. Ce que je fais, vous le savez.</div>
+      </div>
+      <div class="valeur">
+        <span class="valeur-icone" aria-hidden="true">⚡</span>
+        <div class="valeur-titre">Réactivité</div>
+        <div class="valeur-texte">Une urgence administrative ne peut pas attendre. Je m'engage à répondre à toute demande urgente dans un délai de 24 heures ouvrées.</div>
+      </div>
+      <div class="valeur">
+        <span class="valeur-icone" aria-hidden="true">🎯</span>
+        <div class="valeur-titre">Précision</div>
+        <div class="valeur-texte">Un courrier mal rédigé peut aggraver une situation. Ma formation juridique garantit l'exactitude et l'efficacité de chaque document.</div>
+      </div>
+      <div class="valeur">
+        <span class="valeur-icone" aria-hidden="true">⚖️</span>
+        <div class="valeur-titre">Éthique</div>
+        <div class="valeur-texte">Ni legs, ni donation, ni accès aux comptes bancaires. Ma mission s'arrête là où commence la protection juridique. Toujours.</div>
+      </div>
+      <div class="valeur">
+        <span class="valeur-icone" aria-hidden="true">💛</span>
+        <div class="valeur-titre">Respect de l'autonomie</div>
+        <div class="valeur-texte">Vous êtes maître de vos décisions. Mon rôle est d'éclairer, pas de décider à votre place. Je vous accompagne, je ne vous dirige pas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CAHIER DE LIAISON ══════════ -->
+<section id="cahier" class="section section-alt">
+  <div class="section-interieur">
+    <div class="section-surtitre animer">Un lien avec vos proches</div>
+    <h2 class="section-titre animer">Le <em>cahier de liaison</em> mensuel</h2>
+
+    <p class="cahier-intro animer">
+      Parce que vos enfants ou proches peuvent être loin,
+      et qu'ils ont besoin de savoir que tout est bien suivi —
+      chaque mois, je rédige un compte-rendu complet,
+      lisible et rassurant de toutes les actions effectuées.
+    </p>
+
+    <!-- ILLUSTRATION SVG CAHIER -->
+    <div class="animer" style="display:flex;justify-content:center;margin-bottom:2.5rem;" aria-hidden="true">
+      <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:520px;filter:drop-shadow(0 8px 24px rgba(30,58,76,.13));">
+
+        <!-- Ombre portée -->
+        <rect x="28" y="18" width="380" height="272" rx="6" fill="rgba(30,58,76,.08)"/>
+
+        <!-- Corps du cahier -->
+        <rect x="20" y="10" width="380" height="272" rx="6" fill="#F9F5EF"/>
+        <rect x="20" y="10" width="380" height="272" rx="6" fill="none" stroke="#D4B483" stroke-width="1.5"/>
+
+        <!-- Spirale / reliure gauche -->
+        <rect x="20" y="10" width="38" height="272" rx="4" fill="#1E3A4C"/>
+
+        <!-- Anneaux de spirale -->
+        <circle cx="39" cy="40"  r="7" fill="none" stroke="#D4B483" stroke-width="2.5"/>
+        <circle cx="39" cy="40"  r="3" fill="#D4B483"/>
+        <circle cx="39" cy="70"  r="7" fill="none" stroke="#D4B483" stroke-width="2.5"/>
+        <circle cx="39" cy="70"  r="3" fill="#D4B483"/>
+        <circle cx="39" cy="100" r="7" fill="none" stroke="#D4B483" stroke-width="2.5"/>
+        <circle cx="39" cy="100" r="3" fill="#D4B483"/>
+        <circle cx="39" cy="130" r="7" fill="none" stroke="#D4B483" stroke-width="2.5"/>
+        <circle cx="39" cy="130" r="3" fill="#D4B483"/>
+        <circle cx="39" cy="160" r="7" fill="none" stroke="#D4B483" stroke-width="2.5"/>
+        <circle cx="39" cy="160" r="3" fill="#D4B483"/>
+        <circle cx="39" cy="190" r="7" fill="none" stroke="#D4B483" stroke-width="2.5"/>
+        <circle cx="39" cy="190" r="3" fill="#D4B483"/>
+        <circle cx="39" cy="220" r="7" fill="none" stroke="#D4B483" stroke-width="2.5"/>
+        <circle cx="39" cy="220" r="3" fill="#D4B483"/>
+        <circle cx="39" cy="250" r="7" fill="none" stroke="#D4B483" stroke-width="2.5"/>
+        <circle cx="39" cy="250" r="3" fill="#D4B483"/>
+
+        <!-- Bandeau titre -->
+        <rect x="58" y="10" width="342" height="52" rx="0" fill="#1E3A4C"/>
+        <rect x="58" y="10" width="342" height="52" rx="0" fill="none" stroke="#D4B483" stroke-width="0"/>
+
+        <!-- Titre cahier -->
+        <text x="76" y="33" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#D4B483" letter-spacing="0.5">CAHIER DE LIAISON</text>
+        <text x="76" y="51" font-family="Georgia, serif" font-size="11" fill="rgba(249,245,239,.75)" font-style="italic">Votre Sérénité Administrative — Paul et Maguy</text>
+
+        <!-- Mois badge -->
+        <rect x="330" y="20" width="58" height="24" rx="3" fill="#D4B483"/>
+        <text x="359" y="36" font-family="Georgia, serif" font-size="10" font-weight="700" fill="#1E3A4C" text-anchor="middle">Octobre</text>
+
+        <!-- Lignes de contenu -->
+        <!-- Ligne 1 -->
+        <circle cx="76" cy="88" r="4" fill="#4A7060"/>
+        <text x="90" y="84" font-family="Georgia, serif" font-size="10" font-weight="700" fill="#1E3A4C">Démarches effectuées</text>
+        <line x1="90" y1="90" x2="385" y2="90" stroke="#D4B483" stroke-width="0.8" stroke-dasharray="2,3"/>
+        <text x="90" y="102" font-family="Georgia, serif" font-size="9.5" fill="#3D4E56">Demande APA déposée le 14/10 — réponse sous 3 semaines</text>
+
+        <!-- Ligne 2 -->
+        <circle cx="76" cy="128" r="4" fill="#4A7060"/>
+        <text x="90" y="124" font-family="Georgia, serif" font-size="10" font-weight="700" fill="#1E3A4C">Courriers traités</text>
+        <line x1="90" y1="130" x2="385" y2="130" stroke="#D4B483" stroke-width="0.8" stroke-dasharray="2,3"/>
+        <text x="90" y="142" font-family="Georgia, serif" font-size="9.5" fill="#3D4E56">3 reçus · 2 traités (EDF, mutuelle) · 1 en attente validation</text>
+
+        <!-- Ligne 3 -->
+        <circle cx="76" cy="168" r="4" fill="#4A7060"/>
+        <text x="90" y="164" font-family="Georgia, serif" font-size="10" font-weight="700" fill="#1E3A4C">Factures &amp; finances</text>
+        <line x1="90" y1="170" x2="385" y2="170" stroke="#D4B483" stroke-width="0.8" stroke-dasharray="2,3"/>
+        <text x="90" y="182" font-family="Georgia, serif" font-size="9.5" fill="#3D4E56">Toutes vérifiées · Anomalie facture tél. — contestation envoyée</text>
+
+        <!-- Ligne 4 -->
+        <circle cx="76" cy="208" r="4" fill="#7B2D3E"/>
+        <text x="90" y="204" font-family="Georgia, serif" font-size="10" font-weight="700" fill="#1E3A4C">Point d'attention</text>
+        <line x1="90" y1="210" x2="385" y2="210" stroke="#D4B483" stroke-width="0.8" stroke-dasharray="2,3"/>
+        <text x="90" y="222" font-family="Georgia, serif" font-size="9.5" fill="#3D4E56">Renouvellement carte vitale avant le 30/11 — dossier en préparation</text>
+
+        <!-- Ligne 5 -->
+        <circle cx="76" cy="248" r="4" fill="#9A7440"/>
+        <text x="90" y="244" font-family="Georgia, serif" font-size="10" font-weight="700" fill="#1E3A4C">Prochaine intervention</text>
+        <line x1="90" y1="250" x2="385" y2="250" stroke="#D4B483" stroke-width="0.8" stroke-dasharray="2,3"/>
+        <text x="90" y="262" font-family="Georgia, serif" font-size="9.5" fill="#3D4E56">Mercredi 6 novembre · 14h30 · Déclaration revenus fonciers</text>
+
+        <!-- Signature bas -->
+        <text x="385" y="274" font-family="Georgia, serif" font-size="9" fill="#9A7440" text-anchor="end" font-style="italic">Christelle Dauvergne</text>
+
+        <!-- Décoration coin -->
+        <path d="M380 10 L400 10 L400 30 Z" fill="#D4B483" opacity="0.4"/>
+
+      </svg>
+    </div>
+    <p class="animer" style="font-size:var(--taille-base);color:var(--texte-moyen);line-height:var(--ligne);">
+      Ce cahier vous est remis en main propre à chaque fin de mois.
+      Il peut être transmis, avec votre accord, à la personne de confiance
+      que vous aurez désignée dans notre contrat.
+      Ce n'est pas un rapport administratif : c'est un outil de
+      <strong>transparence et de sérénité</strong>, pour vous et pour vos proches.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════ TARIFS ══════════ -->
+<section id="tarifs" class="section">
+  <div class="section-interieur">
+    <div class="section-surtitre animer">Transparence financière</div>
+    <h2 class="section-titre animer">Des <em>tarifs clairs</em>, aucune surprise</h2>
+    <p class="section-intro animer">
+      Toutes les formules sont proposées après un premier entretien
+      d'évaluation gratuit à votre domicile. Le contrat précise
+      exactement ce qui est inclus dans chaque forfait.
+    </p>
+
+    <div class="tarifs-note-ci animer">
+      <div class="ci-chiffre">50%</div>
+      <div>
+        <strong style="font-variant:small-caps;letter-spacing:.05em;">Crédit d'impôt Services à la personne</strong><br>
+        La moitié de vos dépenses vous revient sous forme de crédit ou réduction d'impôt
+        (art. 199 sexdecies du Code général des impôts).
+        Je vous remets chaque année une attestation fiscale conforme.
+      </div>
+    </div>
+
+    <div class="tarifs-grille animer">
+
+      <div class="tarif">
+        <div class="tarif-gauche">
+          <div class="tarif-nom">À la carte</div>
+          <div class="tarif-prix">50 <span class="tarif-prix-unite">€/h</span></div>
+          <div class="tarif-reel">→ 25,00 € nets</div>
+        </div>
+        <div class="tarif-milieu">
+          <div class="tarif-heures">Sans engagement</div>
+          <div class="tarif-desc">Pour une intervention ponctuelle, une démarche unique ou un besoin exceptionnel. Facturation à l'heure.</div>
+        </div>
+        <div class="tarif-droite"></div>
+      </div>
+
+      <div class="tarif">
+        <div class="tarif-gauche">
+          <div class="tarif-nom">Forfait Essentiel</div>
+          <div class="tarif-prix">160 <span class="tarif-prix-unite">€/mois</span></div>
+          <div class="tarif-reel">→ 80 € nets/mois</div>
+        </div>
+        <div class="tarif-milieu">
+          <div class="tarif-heures">4 heures par mois</div>
+          <div class="tarif-desc">Idéal pour un suivi régulier du courrier, des factures et une démarche par mois. Cahier de liaison inclus.</div>
+        </div>
+        <div class="tarif-droite"></div>
+      </div>
+
+      <div class="tarif vedette">
+        <div class="tarif-gauche">
+          <div class="tarif-nom">Forfait Sérénité</div>
+          <div class="tarif-prix">300 <span class="tarif-prix-unite">€/mois</span></div>
+          <div class="tarif-reel">→ 150 € nets/mois</div>
+        </div>
+        <div class="tarif-milieu">
+          <div class="tarif-heures">8 heures par mois</div>
+          <div class="tarif-desc">Suivi complet : courrier, factures, deux démarches mensuelles, cahier de liaison et disponibilité téléphonique entre les séances.</div>
+        </div>
+        <div class="tarif-droite">
+          <div class="tarif-badge-vedette">Recommandé</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tarifs-note-ponctuel animer">
+      ✦ <strong>Démarche ou accompagnement ponctuel</strong> :
+      Forfait de 80 à 150 € selon la complexité,
+      établi sur devis après le premier entretien.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ENGAGEMENTS ══════════ -->
+<section id="engagements" class="section section-alt">
+  <div class="section-interieur">
+    <div class="section-surtitre animer">Ma promesse</div>
+    <h2 class="section-titre animer">Six <em>engagements</em> contractuels</h2>
+    <p class="section-intro animer">
+      Ces engagements figurent dans chaque contrat signé.
+      Ils sont au cœur de mon projet professionnel et m'obligent.
+    </p>
+
+    <div class="engagements-liste animer">
+      <div class="engagement">
+        <div class="engagement-num">01</div>
+        <div>
+          <div class="engagement-titre">Premier entretien gratuit &amp; sans engagement</div>
+          <div class="engagement-texte">Préalablement à la signature de tout contrat, je vous rencontre à votre domicile afin de comprendre précisément vos besoins et de vous proposer la formule la plus adaptée à votre situation.</div>
+        </div>
+      </div>
+      <div class="engagement">
+        <div class="engagement-num">02</div>
+        <div>
+          <div class="engagement-titre">Contrat personnalisé selon votre situation</div>
+          <div class="engagement-texte">Aucun contrat standard. Chaque mission est définie, chaque tarif est justifié. Vous savez exactement ce que vous payez et pour quoi.</div>
+        </div>
+      </div>
+      <div class="engagement">
+        <div class="engagement-num">03</div>
+        <div>
+          <div class="engagement-titre">Cahier de liaison mensuel pour vos proches</div>
+          <div class="engagement-texte">Un compte-rendu complet, lisible et transparent, remis chaque mois et adressé avec votre accord à votre personne de confiance désignée.</div>
+        </div>
+      </div>
+      <div class="engagement">
+        <div class="engagement-num">04</div>
+        <div>
+          <div class="engagement-titre">Confidentialité</div>
+          <div class="engagement-texte">Toutes vos informations restent strictement confidentielles pendant et après notre relation. C'est une clause contractuelle et pas une simple déclaration d'intention.</div>
+        </div>
+      </div>
+      <div class="engagement">
+        <div class="engagement-num">05</div>
+        <div>
+          <div class="engagement-titre">Gestion éthique &amp; déontologique</div>
+          <div class="engagement-texte">Jamais d'accès direct à vos comptes. Jamais de legs ou donation acceptés. Alerte systématique en cas de démarchage suspect. Votre protection est ma priorité.</div>
+        </div>
+      </div>
+      <div class="engagement">
+        <div class="engagement-num">06</div>
+        <div>
+          <div class="engagement-titre">Réseau de professionnels recommandés</div>
+          <div class="engagement-texte">Pour toute demande dépassant mon périmètre légal (conseil juridique, fiscal, médical), je vous oriente vers des professionnels de confiance dont je connais la qualité du travail.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact" class="section">
+  <div class="section-interieur">
+    <div class="section-surtitre animer">Parlons de votre situation</div>
+    <h2 class="section-titre animer">Prenons <em>contact</em></h2>
+    <p class="section-intro animer">
+      Réponse sous 24 heures ouvrées.
+      Le premier entretien est offert, sans engagement.
+    </p>
+
+    <div class="contact-grille">
+
+      <div class="formulaire animer">
+        <div class="form-titre" id="form-titre">Votre demande</div>
+        <div class="form-sous">Quelques informations pour préparer notre premier échange</div>
+
+        <div class="form-groupe">
+          <label class="form-label" for="champ-nom">Votre prénom et nom</label>
+          <input type="text" id="champ-nom" name="nom" class="form-champ" placeholder="Marie Dupont" autocomplete="name" aria-required="true">
+        </div>
+        <div class="form-groupe">
+          <label class="form-label" for="champ-tel">Téléphone</label>
+          <input type="tel" id="champ-tel" name="telephone" class="form-champ" placeholder="06 XX XX XX XX" autocomplete="tel" aria-required="true">
+        </div>
+        <div class="form-groupe">
+          <label class="form-label" for="champ-ville">Ville ou arrondissement</label>
+          <input type="text" id="champ-ville" name="ville" class="form-champ" placeholder="Paris 16e" autocomplete="address-level2">
+        </div>
+        <div class="form-groupe">
+          <label class="form-label" for="champ-profil">Vous êtes</label>
+          <select id="champ-profil" name="profil" class="form-select" aria-required="true">
+            <option value="">— Choisir —</option>
+            <option value="concerne">La personne concernée</option>
+            <option value="proche">Un proche (enfant, aidant familial)</option>
+            <option value="pro">Un professionnel orientant un client</option>
+          </select>
+        </div>
+        <div class="form-groupe">
+          <label class="form-label" for="champ-besoin">Votre besoin principal</label>
+          <select id="champ-besoin" name="besoin" class="form-select">
+            <option value="">— Choisir —</option>
+            <option value="courriers">Correspondances et courriers</option>
+            <option value="formalites">Formalités administratives</option>
+            <option value="factures">Factures et finances du foyer</option>
+            <option value="patrimoine">Gestion patrimoniale courante</option>
+            <option value="multiple">Plusieurs besoins, à évaluer ensemble</option>
+          </select>
+        </div>
+        <div class="form-groupe">
+          <label class="form-label" for="champ-message">Message (facultatif)</label>
+          <textarea id="champ-message" name="message" class="form-textarea" placeholder="Décrivez brièvement votre situation si vous le souhaitez…" aria-describedby="message-aide"></textarea>
+          <span id="message-aide" style="font-size:var(--taille-petit);color:var(--texte-leger);display:block;margin-top:.3rem;">Ce champ est facultatif.</span>
+        </div>
+
+        <button id="btn-envoyer" type="submit" class="btn btn-plein" style="width:100%;" aria-label="Envoyer ma demande de contact à Christelle Dauvergne">Envoyer ma demande</button>
+      </div>
+
+      <div class="contact-infos animer">
+        <div class="contact-bloc">
+          <div class="contact-icone"><span aria-hidden="true">📞</span></div>
+          <div>
+            <div class="contact-info-label">Téléphone</div>
+            <div class="contact-info-val">(+33) 06 08 54 24 85</div>
+            <div class="contact-info-sous">Du lundi au vendredi, 9 h 00 à 18 h 00</div>
+          </div>
+        </div>
+        <div class="contact-bloc">
+          <div class="contact-icone"><span aria-hidden="true">✉️</span></div>
+          <div>
+            <div class="contact-info-label">Adresse électronique</div>
+            <div class="contact-info-val">contact@votresereniteadministrative.fr</div>
+            <div class="contact-info-sous">Réponse sous 24 h 00 ouvrées</div>
+          </div>
+        </div>
+        <div class="contact-bloc">
+          <div class="contact-icone"><span aria-hidden="true">📍</span></div>
+          <div>
+            <div class="contact-info-label">Zone d'intervention</div>
+            <div class="contact-info-val">Lyon, Grand Lyon et Paray-le-Monial</div>
+            <div class="contact-info-sous">Intervention à votre domicile, sur demande</div>
+          </div>
+        </div>
+
+        <div class="garanties">
+          <div class="garanties-titre">Déclaration SAP n° [à compléter]</div>
+          <div class="garanties-texte">
+            Organisme déclaré Services à la Personne
+            — Micro-entreprise SIRET [à compléter]
+            — Assurance RC Pro souscrite
+            — Conforme RGPD
+            — Attestation fiscale annuelle remise à chaque client
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</section><!-- fin contact -->
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer role="contentinfo" aria-label="Pied de page — Votre Sérénité Administrative">
+  <div class="footer-contenu">
+    <div class="footer-haut">
+      <div>
+        <div class="footer-logo">Votre Sérénité Administrative</div>
+        <div class="footer-logo-nom">Christelle Dauvergne</div>
+        <div class="footer-desc">
+          Une assistance administrative pour un service professionel d'excellence et de qualité.
+		  Une professionnelle bienveillante, discrète et enthousiaste, à votre service.
+        </div>
+        <div class="footer-domaine">🌐 votresereniteadministrative.fr</div>
+      </div>
+      <div>
+        <div class="footer-col-titre">Services</div>
+        <ul class="footer-liens">
+          <li><a href="#services">Correspondances</a></li>
+          <li><a href="#services">Formalités administratives</a></li>
+          <li><a href="#services">Factures &amp; finances</a></li>
+          <li><a href="#services">Relations administrations</a></li>
+          <li><a href="#cahier">Cahier de liaison</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-titre">Informations</div>
+        <ul class="footer-liens">
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#valeurs">Valeurs &amp; engagements</a></li>
+          <li><a href="#tarifs">Tarifs &amp; crédit d'impôt</a></li>
+          <li><a href="#engagements">Mes engagements</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bas">
+      <div>© 2026 Votre Sérénité Administrative — Christelle Dauvergne — Tous droits réservés</div>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">CGV</a>
+        <a href="#accessibilite">Accessibilité</a>
+      </div>
+    </div>
+
+    <!-- Déclaration d'accessibilité -->
+    <div id="accessibilite" style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);font-size:var(--taille-petit);color:rgba(249,245,239,.5);line-height:1.75;">
+      <strong style="color:rgba(249,245,239,.75);font-variant:small-caps;letter-spacing:.06em;">Accessibilité numérique</strong><br>
+      Ce site s'efforce de respecter les recommandations WCAG 2.1 niveau AA.
+      En tant que micro-entreprise, il est exempté des obligations formelles de l'European Accessibility Act (EAA).
+      Des efforts ont été apportés sur les contrastes, la taille des textes, la navigation au clavier et la compatibilité avec les lecteurs d'écran.
+      Pour signaler une difficulté d'accessibilité :
+      <a href="mailto:contact@votresereniteadministrative.fr" style="color:var(--or-clair);">contact@votresereniteadministrative.fr</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════ SCRIPTS ══════════ -->
+<script>
+  // Nav scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Révélation au scroll
+  const animables = document.querySelectorAll('.animer');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  animables.forEach(el => obs.observe(el));
+
+  // Bouton formulaire
+  document.getElementById('btn-envoyer').addEventListener('click', function() {
+    this.textContent = '✓ Demande envoyée — Je vous recontacte sous 24h';
+    this.style.background = 'var(--sauge)';
+    this.style.borderColor = 'var(--sauge)';
+    this.style.cursor = 'default';
+    this.disabled = true;
+  });
+</script>
+
+</body>
+</html>
